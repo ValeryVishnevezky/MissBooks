@@ -1,53 +1,53 @@
-import { LongTxt } from "../cmps/LongTxt.jsx";
-import { AddReview } from "../cmps/AddReview.jsx";
-import { bookService } from "../services/book.service.js";
+import { LongTxt } from "../cmps/LongTxt.jsx"
+import { AddReview } from "../cmps/AddReview.jsx"
+import { bookService } from "../services/book.service.js"
 
-const { useEffect, useState } = React;
-const { useParams, useNavigate } = ReactRouterDOM;
+const { useEffect, useState } = React
+const { useParams, useNavigate } = ReactRouterDOM
 
 export function BookDetails() {
-  const [book, setBook] = useState(null);
-  const { bookId } = useParams();
-  const navigate = useNavigate();
+  const [book, setBook] = useState(null)
+  const { bookId } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    loadBook();
-  }, [bookId]);
+    loadBook()
+  }, [bookId])
 
   function loadBook() {
     bookService
       .get(bookId)
       .then(setBook)
       .catch((err) => {
-        console.log("Problem getting book:", err);
-      });
+        console.log("Problem getting book:", err)
+      })
   }
 
   function getBookLng(lng) {
     switch (lng) {
       case "he":
-        return "Hebrew";
+        return "Hebrew"
       case "sp":
-        return "Spanish";
+        return "Spanish"
       default:
-        return "English";
+        return "English"
     }
   }
 
   function getPublishDate() {
-    const currYear = new Date().getFullYear();
-    let publishedYear = book.publishedDate;
-    const diff = currYear - publishedYear;
-    if (diff > 10) publishedYear += " - Vintage";
-    else if (diff < 10) publishedYear += " - NEW!";
-    return publishedYear;
+    const currYear = new Date().getFullYear()
+    let publishedYear = book.publishedDate
+    const diff = currYear - publishedYear
+    if (diff > 10) publishedYear += " - Vintage"
+    else if (diff < 10) publishedYear += " - NEW!"
+    return publishedYear
   }
 
   function getPageCount() {
-    let pageCount = book.pageCount;
-    if (book.pageCount > 500) pageCount += " - Long reading";
-    else if (book.pageCount > 200) pageCount += " - Decent reading";
-    else if (book.pageCount < 100) pageCount += " - Light reading";
+    let pageCount = book.pageCount
+    if (book.pageCount > 500) pageCount += " - Long reading"
+    else if (book.pageCount > 200) pageCount += " - Decent reading"
+    else if (book.pageCount < 100) pageCount += " - Light reading"
     return pageCount;
   }
 
@@ -58,8 +58,8 @@ export function BookDetails() {
         loadBook()
       })
       .catch((err) => {
-        console.log("Error adding review:", err);
-      });
+        console.log("Error adding review:", err)
+      })
   }
 
   function onDeleteReview(idx){
@@ -69,15 +69,15 @@ export function BookDetails() {
       loadBook()
     })
     .catch((err) => {
-      console.log("Error deleting review:", err);
-    });
+      console.log("Error deleting review:", err)
+    })
   }
 
   function onBack() {
-    navigate("/book");
+    navigate("/book")
   }
 
-  if (!book) return <div>Loading...</div>;
+  if (!book) return <div>Loading...</div>
   const {
     title,
     subtitle,
