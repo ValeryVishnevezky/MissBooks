@@ -1,83 +1,85 @@
-import { LongTxt } from "../cmps/LongTxt.jsx"
-import { AddReview } from "../cmps/AddReview.jsx"
-import { bookService } from "../services/book.service.js"
+import { LongTxt } from "../cmps/LongTxt.jsx";
+import { AddReview } from "../cmps/AddReview.jsx";
+import { bookService } from "../services/book.service.js";
 
-const { useEffect, useState } = React
-const { useParams, useNavigate } = ReactRouterDOM
+const { useEffect, useState } = React;
+const { useParams, useNavigate, Link } = ReactRouterDOM;
 
 export function BookDetails() {
-  const [book, setBook] = useState(null)
-  const { bookId } = useParams()
-  const navigate = useNavigate()
+  const [book, setBook] = useState(null);
+  const { bookId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    loadBook()
-  }, [bookId])
+    loadBook();
+  }, [bookId]);
 
   function loadBook() {
     bookService
       .get(bookId)
       .then(setBook)
       .catch((err) => {
-        console.log("Problem getting book:", err)
-      })
+        console.log("Problem getting book:", err);
+      });
   }
 
   function getBookLng(lng) {
     switch (lng) {
       case "he":
-        return "Hebrew"
+        return "Hebrew";
       case "sp":
-        return "Spanish"
+        return "Spanish";
       default:
-        return "English"
+        return "English";
     }
   }
 
   function getPublishDate() {
-    const currYear = new Date().getFullYear()
-    let publishedYear = book.publishedDate
-    const diff = currYear - publishedYear
-    if (diff > 10) publishedYear += " - Vintage"
-    else if (diff < 10) publishedYear += " - NEW!"
-    return publishedYear
+    const currYear = new Date().getFullYear();
+    let publishedYear = book.publishedDate;
+    const diff = currYear - publishedYear;
+    if (diff > 10) publishedYear += " - Vintage";
+    else if (diff < 10) publishedYear += " - NEW!";
+    return publishedYear;
   }
 
   function getPageCount() {
-    let pageCount = book.pageCount
-    if (book.pageCount > 500) pageCount += " - Long reading"
-    else if (book.pageCount > 200) pageCount += " - Decent reading"
-    else if (book.pageCount < 100) pageCount += " - Light reading"
+    let pageCount = book.pageCount;
+    if (book.pageCount > 500) pageCount += " - Long reading";
+    else if (book.pageCount > 200) pageCount += " - Decent reading";
+    else if (book.pageCount < 100) pageCount += " - Light reading";
     return pageCount;
   }
 
   function onBookReview(review) {
-    bookService.addReview(book, review)
-      .then((updatedBook) => {        
-        setBook(updatedBook)
-        loadBook()
+    bookService
+      .addReview(book, review)
+      .then((updatedBook) => {
+        setBook(updatedBook);
+        loadBook();
       })
       .catch((err) => {
-        console.log("Error adding review:", err)
-      })
+        console.log("Error adding review:", err);
+      });
   }
 
-  function onDeleteReview(idx){
-    bookService.deleteReview(book, idx)
-    .then((updatedBook) => {        
-      setBook(updatedBook)
-      loadBook()
-    })
-    .catch((err) => {
-      console.log("Error deleting review:", err)
-    })
+  function onDeleteReview(idx) {
+    bookService
+      .deleteReview(book, idx)
+      .then((updatedBook) => {
+        setBook(updatedBook);
+        loadBook();
+      })
+      .catch((err) => {
+        console.log("Error deleting review:", err);
+      });
   }
 
   function onBack() {
-    navigate("/book")
+    navigate("/book");
   }
 
-  if (!book) return <div>Loading...</div>
+  if (!book) return <div>Loading...</div>;
   const {
     title,
     subtitle,
@@ -92,6 +94,12 @@ export function BookDetails() {
 
   return (
     <section className="book-details-container">
+          <div className="actions-btns">
+            <button className="go-back-btn" onClick={onBack}>
+              ⬅ Go back
+            </button>
+          </div>
+          
       <div className="book-details-title">{title}</div>
       <div className="book-details-subtitle">{subtitle}</div>
       <div className="book-thumbnail-container">
@@ -151,10 +159,10 @@ export function BookDetails() {
             <ul>
               {reviews.map((review, idx) => (
                 <li key={idx}>
-                    <div>{review.fullname || "No name"}</div>
-                    <div>{review.rating || "No rating"}</div>
-                    <div>Read at: {review.readAt || "Date not specified"}</div>
-                    <button onClick={() => onDeleteReview(idx)}>Delete</button>
+                  <div>{review.fullname || "No name"}</div>
+                  <div>{review.rating || "No rating"}</div>
+                  <div>Read at: {review.readAt || "Date not specified"}</div>
+                  <button onClick={() => onDeleteReview(idx)}>Delete</button>
                 </li>
               ))}
             </ul>
@@ -174,12 +182,15 @@ export function BookDetails() {
           >
             Buy it now!
           </button>
-          <div className="actions-btns">
-            <button className="go-back-btn" onClick={onBack}>
-              ⬅ Go back
-            </button>
-          </div>
         </div>
+        <section className="book-routing-container">
+        <button>
+          <Link to={`/book/${book.prevBookId}`}>Prev book</Link>
+        </button>
+        <button>
+          <Link to={`/book/${book.nextBookId}`}>Next book</Link>
+        </button>
+      </section>
       </div>
     </section>
   );
