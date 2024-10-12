@@ -12,5 +12,5 @@ export function AppHeader() {
         <NavLink to="/book">Books</NavLink>
       </nav>
     </header>
-  );
+  )
 }

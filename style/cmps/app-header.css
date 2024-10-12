@@ -2,24 +2,33 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 90px;
+    color: white;
     background-color: rgb(104, 179, 255);
 }
 
 .nav-bar >*:not(:last-child){
-    margin-right: 1rem;
+    margin-right: 3rem;
 }
 
 .nav-bar {
-    height: 100%;
-    padding: 1.5rem 2rem;
+    /* height: 90px; */
+    padding-right: 2rem;
 }
 
 .nav-bar >*{
-    padding: 1.9rem 2rem;
+    /* padding: 1.9rem 2rem; */
     text-decoration: none;
-    color: black;
+    /* color: black; */
     font-size: 1.3rem;
-    height: 100%;
+}
+
+.nav-bar a {
+    /* padding: 1.9rem 2rem; */
+    text-decoration: none;
+    /* color: black; */
+    font-size: 1.3rem;
+    height: 90px;
 }
 
 .nav-bar >*:hover{
@@ -29,7 +38,7 @@
 
 .logo{
     font-size: 2rem;
-    font-weight: bold;
+    font-family: Lato-bold, sans-serif;
     cursor: pointer;
-    padding: 1.5rem 2rem;
+    padding-left: 2rem;
 }

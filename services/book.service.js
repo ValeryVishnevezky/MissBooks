@@ -9,6 +9,7 @@ export const bookService = {
     getDefaultFilter,
     addReview,
     deleteReview,
+    addGoogleBook,
 }
 const BOOK_KEY = 'bookDB'
 _createBooks()
@@ -50,15 +51,26 @@ function getDefaultFilter() {
     return { title: '', price: 0, isOnSale: false }
 }
 
-function addReview(book, review){
+function addReview(book, review) {
     if (!book.reviews) book.reviews = []
     book.reviews.push(review)
     return storageService.put(BOOK_KEY, book)
 }
 
-function deleteReview(book, reviewIdx){
+function deleteReview(book, reviewIdx) {
     book.reviews.splice(reviewIdx, 1)
     return storageService.put(BOOK_KEY, book)
+}
+
+function addGoogleBook(newGoogleBook) {
+    query()
+        .then(books => {
+            const bookInStorage = books.some(book => book.id === newGoogleBook.id)
+            if (!bookInStorage) {
+                books.push(newGoogleBook)
+                utilService.saveToStorage(BOOK_KEY, books)
+            }
+        })
 }
 
 function _setNextPrevBookId(book) {
