@@ -62,14 +62,14 @@ export function BookDetails() {
       });
   }
 
-  function onDeleteReview(review){
-    bookService.deleteReview(book, review)
+  function onDeleteReview(idx){
+    bookService.deleteReview(book, idx)
     .then((updatedBook) => {        
       setBook(updatedBook)
       loadBook()
     })
     .catch((err) => {
-      console.log("Error adding review:", err);
+      console.log("Error deleting review:", err);
     });
   }
 
@@ -154,9 +154,9 @@ export function BookDetails() {
                     <div>{review.fullname || "No name"}</div>
                     <div>{review.rating || "No rating"}</div>
                     <div>Read at: {review.readAt || "Date not specified"}</div>
+                    <button onClick={() => onDeleteReview(idx)}>Delete</button>
                 </li>
               ))}
-            <button onClick={onDeleteReview(idx)}>Delete</button>
             </ul>
           ) : (
             <div>No reviews yet</div>
