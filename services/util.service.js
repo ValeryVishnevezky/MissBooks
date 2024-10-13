@@ -4,7 +4,8 @@ export const utilService = {
     getRandomInt,
     saveToStorage,
     loadFromStorage,
-    getRandomBookPrice
+    getRandomBookPrice,
+    getTruthyValues
 }
 
 function makeId(length = 25) {
@@ -49,4 +50,16 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
+}
+
+export function getTruthyValues(obj) {
+    const newObj = {}
+    for (const key in obj) {
+        const value = obj[key]
+        if (value || value === 0) {
+            newObj[key] = value
+        }
+    }
+    return newObj
+
 }

@@ -10,6 +10,7 @@ export const bookService = {
     addReview,
     deleteReview,
     addGoogleBook,
+    getFilterFromSearchParams,
 }
 const BOOK_KEY = 'bookDB'
 _createBooks()
@@ -71,6 +72,17 @@ function addGoogleBook(newGoogleBook) {
                 utilService.saveToStorage(BOOK_KEY, books)
             }
         })
+}
+
+function getFilterFromSearchParams(searchParams) {
+    const title = searchParams.get('title') || ''
+    const price = searchParams.get('price') || ''
+    const onSale = searchParams.get('onSale') || ''
+    return {
+        title,
+        price, 
+        onSale
+    }
 }
 
 function _setNextPrevBookId(book) {
