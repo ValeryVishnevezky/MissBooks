@@ -69,7 +69,9 @@ export function BookEdit() {
     <section className="book-edit">
       <h2 className="edit-book-header">Edit Book</h2>
       <form onSubmit={onSaveBook}>
-        <div className="book-details-info-row">
+        
+        <div className="book-edit-form">
+        <div className="book-edit-info-row">
           <label className="book-details-info-title">Title:</label>
           <input
             type="text"
@@ -80,7 +82,7 @@ export function BookEdit() {
           />
         </div>
 
-        <div className="book-details-info-row">
+        <div className="book-edit-info-row">
           <label className="book-details-info-title">Description:</label>
           <textarea
             type="text"
@@ -91,7 +93,7 @@ export function BookEdit() {
           />
         </div>
 
-        <div className="book-details-info-row">
+        <div className="book-edit-info-row">
           <label className="book-details-info-title">Price:</label>
           <input
             type="number"
@@ -102,7 +104,7 @@ export function BookEdit() {
           />
         </div>
 
-        <div className="book-details-info-row">
+        <div className="book-edit-info-row">
           <label className="book-details-info-title">On Sale:</label>
           <input
             type="checkbox"
@@ -111,6 +113,7 @@ export function BookEdit() {
             onChange={handleListPriceChange}
             checked={bookToEdit.listPrice ? bookToEdit.listPrice.isOnSale || false : false}
           />
+        </div>
         </div>
 
         <div className="book-edit-actions-container">

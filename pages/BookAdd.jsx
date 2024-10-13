@@ -10,16 +10,17 @@ export function BookAdd() {
     if (searchBook) {
       const debounce = setTimeout(() => {
         fetchBooks(searchBook)
-      }, 3000)
+      }, 2000)
 
       return () => clearTimeout(debounce)
     }
   }, [searchBook])
 
   function fetchBooks(searchBook) {
-    fetch(`https://www.googleapis.com/books/v1/volumes?printType=books&q=${searchBook}`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?printType=books&q=${searchBook}&key=AIzaSyC-NKwTL6g0907-Pxz0EaX06tA1fTlVvpI`)
       .then((response) => response.json())
       .then((data) => {
+        console.log("API response:", data)
         const books = data.items
         setBooks(
             books.map((book) => ({
@@ -46,18 +47,23 @@ export function BookAdd() {
 
   function onAddBook(googleBook) {
       bookService.addGoogleBook(googleBook)
-      setBooks([])
+      showSuccessMsg("Book added successfully")
     }
 
   return (
     <div className="book-add-container">
+      <div className="book-add">Search for a book you like</div>
+      <div className="book-add-input-box">
       <input
         type="text"
+        className="book-add-input"
         placeholder="Search a book..."
         value={searchBook}
         onChange={(event) => setSearchBook(event.target.value)}
       />
-      <button onClick={() => fetchBooks(searchBook)}>Search</button>
+      <button onClick={() => setSearchBook(searchBook)}>Search</button>
+      </div>
+      <div className="book-add-input-res">
       <ul>
         {books.map((googleBook) => (
           <li key={googleBook.id}>
@@ -66,6 +72,7 @@ export function BookAdd() {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   )
 }

@@ -11,16 +11,11 @@ export function BookPreview({ book }) {
         )}
       </section>
 
-      <div className="book-card-details">
+      <div className="book-card-details-info">
         <div className="book-card-title">{title}</div>
-        <div className="book-card-detail">
-          <span className="book-card-details-title">Author </span>
-          <span className="book-card-details-info">{authors}</span>
-        </div>
-
-        <div className="book-card-detail">
-          <span className="book-card-details-title"></span>
-          <span className="book-card-details-info">
+        <span className="book-card-details-info-authors">{authors}</span>
+        <div className="book-card-detail-price-info">
+          <span className="book-card-details-price">
             {listPrice.amount.toLocaleString(undefined, {
               style: "currency",
               currency: listPrice.currencyCode,

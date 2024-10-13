@@ -13,3 +13,11 @@
 @import 'cmps/user-msg.css';
 @import 'cmps/book-preview.css';
 @import 'cmps/book-list.css';
+@import 'cmps/book-filter.css';
+@import 'cmps/add-review.css';
+@import 'cmps/long-txt.css';
+
+/* Pages */
+@import 'pages/book-add.css';
+@import 'pages/book-details.css';
+@import 'pages/book-edit.css';

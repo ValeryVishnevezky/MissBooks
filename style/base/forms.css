@@ -16,6 +16,6 @@ button:hover {
     transition: .3s;
 }
 input:focus {
-    background-color: rgb(22, 72, 122);
+    background-color: rgb(223, 238, 254);
     transition: background-color 1s;
 }

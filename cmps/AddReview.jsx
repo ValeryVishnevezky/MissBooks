@@ -31,7 +31,7 @@ function addBookReview(ev){
 
   return (
     <section className='book-review'>
-      <h2>Reviews</h2>
+      <div className="book-review-title">Reviews</div>
       <form onSubmit={addBookReview}>
         <div className='form-review'>
           <label htmlFor='fullname'>Full Name</label>
