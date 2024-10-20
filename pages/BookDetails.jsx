@@ -96,7 +96,7 @@ export function BookDetails() {
     <section className="book-details padding">
       <div className="actions-btn">
         <button className="go-back-btn" onClick={onBack}>
-          ⬅ Go back
+        <i className="fa-solid fa-arrow-left"></i>
         </button>
       </div>
 
@@ -121,7 +121,7 @@ export function BookDetails() {
           </div>
 
           <div className="book-details-info-row">
-            <span className="book-details-info-title span">Year publish: </span>
+            <span className="book-details-info-title span">Year publish </span>
             <span className="book-details-info-text">{getPublishDate()}</span>
           </div>
 
@@ -133,26 +133,26 @@ export function BookDetails() {
           </div>
 
           <div className="book-details-info-row">
-            <span className="book-details-info-title span">Language: </span>
+            <span className="book-details-info-title span">Language </span>
             <span className="book-details-info-text">
               {getBookLng(language)}
             </span>
           </div>
 
           <div className="book-details-info-row">
-            <span className="book-details-info-title span">Categories: </span>
+            <span className="book-details-info-title span">Categories </span>
             <span className="book-details-info-text">
               {categories.join(", ")}
             </span>
           </div>
 
           <div className="book-details-info-row">
-            <span className="book-details-info-title span">Pages: </span>
+            <span className="book-details-info-title span">Pages </span>
             <span className="book-details-info-text">{getPageCount()}</span>
           </div>
 
           <div className="book-details-info-row">
-            <span className="book-details-info-title span">Price: </span>
+            <span className="book-details-info-title span">Price </span>
             <span className={"book-details-info-text "}>
               {listPrice.amount.toLocaleString(undefined, {
                 style: "currency",
@@ -174,7 +174,7 @@ export function BookDetails() {
 
       <div className="book-details-bottom-container">
         <div className="book-details-info-row-description ">
-          <span className="book-details-info-row-description span">Description: </span>
+          <span className="book-details-info-row-description span">Description </span>
           <span className="book-details-info-row-description-button">
             <LongTxt txt={description} />
           </span>
@@ -182,19 +182,19 @@ export function BookDetails() {
 
         <div className="book-details-review-container">
           <div className="book-details-review">
-            <span className="book-details-review span">Reviews: </span>
+            <span className="book-details-review span">Reviews </span>
             {reviews && reviews.length > 0 ? (
               <ul>
                 {reviews.map((review, idx) => (
                   <li key={idx}>
                     <div className="book-details-review-info">
                       <div className="book-details-review-span-info">
-                      <span className="book-details-review span">Name:</span>
+                      <span className="book-details-review span">Name</span>
                       <span>{review.fullname || "No name"}</span>
                       </div>
                       <div className="book-details-review-span-info">
                         <span className="book-details-review span">
-                          Rating:
+                          Rating
                         </span>
                         <span className="book-details-review-rating">
                         {review.rating ? ([...Array(5)].map((_, index) => ( <span key={index}>{index < review.rating ? "★" : "☆"}</span> ))) : "No rating"}
@@ -202,7 +202,7 @@ export function BookDetails() {
                       </div>
                       <div className="book-details-review-span-info">
                         <span className="book-details-review span">
-                          Read at:
+                          Read at
                         </span>
                         <span>{review.readAt || "Date not specified"}</span>
                       </div>
@@ -228,10 +228,10 @@ export function BookDetails() {
 
       <section className="book-routing-container">
         <button>
-          <Link to={`/book/${book.prevBookId}`}>Prev book</Link>
+          <Link to={`/book/${book.prevBookId}`}><i class="fa-solid fa-chevron-left"></i></Link>
         </button>
         <button>
-          <Link to={`/book/${book.nextBookId}`}>Next book</Link>
+          <Link to={`/book/${book.nextBookId}`}><i class="fa-solid fa-chevron-right"></i></Link>
         </button>
       </section>
     </section>
