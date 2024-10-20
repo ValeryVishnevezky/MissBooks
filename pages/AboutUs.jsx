@@ -2,7 +2,7 @@ export function AboutUs() {
   return (
     <section className="about padding">
       <div className="about-valery">
-        <img src="style/about.img/valery.jpg" alt="Valery Photo" />
+        <img src="style/img/valery.jpg" alt="Valery Photo" />
         <h1>Valery Vishnevezky</h1>
         <h2>
           Full Stack Developer with a passion for creating intuitive and
