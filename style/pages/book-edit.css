@@ -26,16 +26,16 @@
   white-space: nowrap;
 }
 
-.book-edit-info-row textarea{
-    height: 35px;
-    width: 89%;
-    min-width: 89%;
-    max-width: 89%;
-    font-size: 1rem;
-    border: 1px solid gray;
-    border-radius: 0.5rem;
+.book-edit-info-row textarea {
+  height: 35px;
+  width: 89%;
+  min-width: 89%;
+  max-width: 89%;
+  font-size: 1rem;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
 }
 
-.book-edit-form{
-    width: 500px;
+.book-edit-form {
+  width: 500px;
 }

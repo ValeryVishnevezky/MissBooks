@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   gap: 100px;
-  margin-top: 50px;
+  margin: 40px 20px;
   text-align: center;
 }
 
@@ -30,19 +30,66 @@
   background: linear-gradient(to right, #2192f7, #d968c1, #f45c2d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-family: Lato-bold;
   letter-spacing: 0.05rem;
 }
 
 .about-valery h2 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-family: Lato-bold;
   letter-spacing: 0.03rem;
 }
 
 .about-valery p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   letter-spacing: 0.04rem;
   max-width: 70%;
+}
+
+@media screen and (max-width: 850px) {
+  .about {
+    font-family: Lato;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    margin: 20px 0px;
+    text-align: center;
+  }  
+
+  .about-valery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    width: auto;
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow: 0 0 5px 1px rgba(123, 218, 255, 0.933);
+  }
+
+  .about-valery h1 {
+    background: linear-gradient(to right, #2192f7, #d968c1, #f45c2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    font-family: Lato-bold;
+    letter-spacing: 0.05rem;
+  }
+  
+  .about-valery h2 {
+    font-size: 1.3rem;
+    font-family: Lato-bold;
+    letter-spacing: 0.03rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-valery p {
+    font-size: 1.2rem;
+    letter-spacing: 0.04rem;
+    max-width: 90%;
+    margin-bottom: 15px;
+  }
 }

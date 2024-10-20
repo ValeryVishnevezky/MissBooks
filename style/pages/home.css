@@ -88,40 +88,40 @@
 }
 
 @media screen and (max-width: 850px) {
-    .hero {
-        position: relative;
-        background: white;
-        color: rgb(104, 179, 255);
-        height: 95vh;
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-      }
+  .hero {
+    position: relative;
+    background: white;
+    color: rgb(104, 179, 255);
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
 
-    .hero h2 {
-        font-size: 2rem;
-      }
-      
-      .hero p {
-        position: relative;
-        z-index: 1;
-        font-size: 1rem;
-        color: rgb(9, 68, 128);
-        line-height: 1.4;
-        z-index: 2;
-        padding: 20px;
-        border-radius: 1rem;
-        background-color: rgba(255, 255, 255, 0.615);
-      }
+  .hero h2 {
+    font-size: 2.2rem;
+  }
 
-      .waves {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 200px;
-        background-color: var(--color);
-        box-shadow: inset 0 0 50px rgba(0, 5, 22, 0.5);
-        transition: 700ms;
-      }
+  .hero p {
+    position: relative;
+    z-index: 1;
+    font-size: 1.4rem;
+    color: rgb(9, 68, 128);
+    line-height: 1.4;
+    z-index: 2;
+    padding: 20px;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.615);
+  }
+
+  .waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background-color: var(--color);
+    box-shadow: inset 0 0 50px rgba(0, 5, 22, 0.5);
+    transition: 700ms;
+  }
 }

@@ -121,9 +121,6 @@
 }
 
 @media screen and (max-width: 850px) {
-  /* .book-details-container > * {
-    font-size: 1rem;
-  } */
   .book-details-container {
     display: flex;
     flex-direction: column;
