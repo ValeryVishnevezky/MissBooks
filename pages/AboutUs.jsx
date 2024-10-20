@@ -3,7 +3,6 @@ export function AboutUs() {
     <section className="about padding">
       <div className="about-valery">
         <img src="./style/img/valery.jpg" alt="Valery Photo" />
-        <img src="https://via.placeholder.com/150" alt="Placeholder Image" />
         <h1>Valery Vishnevezky</h1>
         <h2>
           Full Stack Developer with a passion for creating intuitive and
