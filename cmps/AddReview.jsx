@@ -42,7 +42,7 @@ export function AddReview({ onBookReview }) {
 
   return (
     <section className="book-review">
-      <div className="book-review-title">Reviews</div>
+      <div className="book-review-title">Add review</div>
       <form onSubmit={addBookReview}>
         <div className="form-review">
           <label htmlFor="fullname">Full Name</label>

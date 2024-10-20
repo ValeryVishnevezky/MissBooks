@@ -53,6 +53,7 @@
 
 .book-details-info-row-description button {
   margin-top: 20px;
+  background-color: #76aadc78;
 }
 
 .book-details-info-row-description-button {
@@ -111,6 +112,7 @@
   padding: 50px 0;
   width: 100%;
   min-width: 450px;
+  border-top: 1px solid #4e6b878e;
 }
 
 .book-routing-container {
