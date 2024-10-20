@@ -32,9 +32,11 @@ export function BookFilter({ filterBy, onSetFilter }) {
       <div className="book-filter-title">
       <h2>Filter Our Books</h2>
       </div>
-      <div className="book-filter-form">
       <form>
-        <label htmlFor="title">Title</label>
+      <div className="book-filter-form">
+        <div className="book-filter-input-1">
+          <div>
+        {/* <label htmlFor="title">Title</label> */}
         <input
           onChange={handleChange}
           value={title}
@@ -42,8 +44,11 @@ export function BookFilter({ filterBy, onSetFilter }) {
           type="text"
           name="title"
           id="title"
+          placeholder="Title"
         />
-        <label htmlFor="price">Price</label>
+          </div>
+          <div>
+        {/* <label htmlFor="price">Price</label> */}
         <input
           onChange={handleChange}
           value={price || ''}
@@ -51,8 +56,14 @@ export function BookFilter({ filterBy, onSetFilter }) {
           type="number"
           name="price"
           id="price"
+          placeholder="Price"
         />
-        <label htmlFor="isOnSale">On Sale</label>
+          </div>
+        </div>
+
+        <div className="book-filter-input-2">
+          <div className="book-filter-input-2-input">
+        <label htmlFor="isOnSale" className="book-filter-input-isOnSale-label">On Sale</label>
         <input
           onChange={handleChange}
           value={isOnSale}
@@ -61,10 +72,14 @@ export function BookFilter({ filterBy, onSetFilter }) {
           name="isOnSale"
           id="isOnSale"
         />
+          </div>
+        <div>
         <button>Submit</button>
         <button className="book-filter-link-add-book"><Link to={`/book/add`}>Add book</Link></button>
-      </form>
+        </div>
+        </div>
       </div>
+      </form>
     </section>
   )
 }

@@ -14,9 +14,8 @@
 }
 
 .book-filter-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 30px;
+  display: flex;
+  /* gap: 30px; */
   align-items: center;
   justify-content: center;
 }
@@ -29,20 +28,91 @@
 .book-filter-input-title,
 .book-filter-input-price {
   height: 35px;
-  width: 25%;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-family: Lato;
   border: 1px solid gray;
   border-radius: 0.5rem;
-  padding-left: 10px;
-  margin: 10px;
+  width: 100%;
+}
+
+.book-filter-input-2, .book-filter-input-1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  }
+
+.book-filter-input-2-input{
+position: relative;
 }
 
 .book-filter-input-isOnSale {
+  position: absolute;
   width: 30px;
   height: 30px;
-  margin: 0 10px;
+  left: 80px;
+  top: -7px;
+}
+
+.book-filter-input-isOnSale-label{
+  margin-left: 10px;
+  margin-right: 70px;
 }
 
 .book-filter-link-add-book {
   background-color: #3aa052;
+}
+
+@media screen and (max-width: 960px) {
+  .book-filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-filter-input-title,
+.book-filter-input-price {
+  height: 35px;
+  font-size: 1.1rem;
+  font-family: Lato;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  width: 30vh;
+}
+}
+
+@media screen and (max-width: 690px) {
+  .book-filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-filter-input-2, .book-filter-input-1{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    }
+
+    .book-filter-input-isOnSale {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 80px;
+      top: -7px;
+    }
+
+    .book-filter-input-title,
+    .book-filter-input-price {
+      height: 35px;
+      font-size: 1.1rem;
+      font-family: Lato;
+      border: 1px solid gray;
+      border-radius: 0.5rem;
+      width: 35vh;
+    }
 }
