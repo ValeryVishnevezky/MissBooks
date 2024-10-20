@@ -93,7 +93,7 @@ export function BookDetails() {
   } = book;
 
   return (
-    <section className="book-details">
+    <section className="book-details padding">
       <div className="actions-btn">
         <button className="go-back-btn" onClick={onBack}>
           ⬅ Go back
@@ -166,7 +166,6 @@ export function BookDetails() {
               className="buy-book-btn"
               onClick={() => alert(`Have a good reading!`)}
             >
-              {" "}
               Buy it now!
             </button>
           </div>

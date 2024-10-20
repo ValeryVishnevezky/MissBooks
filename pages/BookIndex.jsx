@@ -43,7 +43,7 @@ export function BookIndex() {
 
   if (!books) return <div>Loading...</div>
   return (
-    <main>
+    <main className="padding">
       <BookFilter onSetFilter={onSetFilter} filterBy={filterBy} />
       {!!books.length && <BookList books={books} onRemoveBook={onRemoveBook} />}
       {!books.length && <div>No books</div>}

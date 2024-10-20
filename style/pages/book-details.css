@@ -14,7 +14,6 @@
   flex-direction: column;
   gap: 10px;
   padding: 20px;
-  min-width: 450px;
 }
 
 .book-details-title {
@@ -58,11 +57,6 @@
 
 .book-details-info-row-description-button {
   text-align: center;
-}
-
-.book-details-review-container {
-  width: 100%;
-  min-width: 450px;
 }
 
 .book-details-review {
@@ -115,6 +109,8 @@
   align-items: start;
   justify-content: space-between;
   padding: 50px 0;
+  width: 100%;
+  min-width: 450px;
 }
 
 .book-routing-container {
@@ -122,4 +118,64 @@
   justify-content: space-between;
   align-items: center;
   margin: 30px 0;
+}
+
+@media screen and (max-width: 850px) {
+  /* .book-details-container > * {
+    font-size: 1rem;
+  } */
+  .book-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px;
+  }
+
+  .book-details-review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding: 20px 0;
+    min-width: 0;
+  }
+
+  .book-details-info {
+    text-align: center;
+  }
+
+  .book-details-info .span,
+  .book-details-info-row .span,
+  .book-details-review .span,
+  .book-details-info-row-description .span {
+    font-family: Lato-bold, sans-serif;
+    font-size: 1rem;
+  }
+
+  .book-details-add-review {
+    width: 100%;
+    margin-left: 0;
+  }
+  .book-details-bottom-container {
+    margin: 0;
+  }
+  .book-details-title {
+    font-family: Lato-bold, sans-serif;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+  }
+
+  .book-details-subtitle {
+    font-family: Lato-bold, sans-serif;
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+  .book-details-buy-container {
+    text-align: center;
+    margin-top: 10px;
+  }
 }
